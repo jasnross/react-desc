@@ -29,11 +29,11 @@ const propTypeFormat = (propType) => {
         break;
       case 'arrayOf':
         if (Array.isArray(propType.args)) {
-          result = `${arrayFormat(propType.args).join('\n')}[]`;
+          result = `Array<${arrayFormat(propType.args).join('\n')}>`;
         } else if (propType.args.type === 'oneOfType') {
-          result = `${propTypeFormat(propType.args)}[]`;
+          result = `Array<${propTypeFormat(propType.args)}>`;
         } else {
-          result = `${propTypeFormat(propType.args)}[]`;
+          result = `Array<${propTypeFormat(propType.args)}>`;
         }
         break;
       case 'bool':

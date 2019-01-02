@@ -92,6 +92,13 @@ const allPropTypes = {
   ]).description('oneOfType'),
   test15: PropTypes.symbol.description('symbol'),
   test16: PropTypes.shape(complexShape).description('shape'),
+  test17: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.element,
+      PropTypes.object,
+    ]),
+  ).description('mixed arrayOf'),
   testRequired: PropTypes.string.description('testRequired').isRequired,
   testDeprecated: (
     PropTypes.string.description('testDeprecated').defaultValue('abc').deprecated(
